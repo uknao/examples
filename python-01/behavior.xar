@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <ChoregrapheProject xmlns="http://www.aldebaran-robotics.com/schema/choregraphe/project.xsd" xar_version="3">
-    <Box name="root" robot="" id="-1" tooltip="Root box of Choregraphe&apos;s project. Highest level possible." bitmap_expanded="1" plugin="" x="0" y="0">
+    <Box name="root" id="-1" localization="8" tooltip="Root box of Choregraphe&apos;s project. Highest level possible." x="0" y="0">
         <bitmap>media/images/box/root.png</bitmap>
         <script language="4">
             <content>
@@ -11,12 +11,11 @@
         <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
         <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
         <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
-        <Timeline fps="10" resources_acquisition="0" size="300" enable="0" start_frame="0" end_frame="-1" scale="10">
-            <watches />
-            <BehaviorLayer name="behavior_layer1" mute="0">
-                <BehaviorKeyframe name="keyframe1" index="1" bitmap="">
-                    <Diagram scale="-1">
-                        <Box name="Python example" robot="" id="1" tooltip="Enter tooltip here" bitmap_expanded="1" plugin="" x="189" y="145">
+        <Timeline enable="0">
+            <BehaviorLayer name="behavior_layer1">
+                <BehaviorKeyframe name="keyframe1" index="1">
+                    <Diagram>
+                        <Box name="Python example" id="1" localization="8" tooltip="Enter tooltip here" x="189" y="145">
                             <bitmap>media/images/box/box-diagram.png</bitmap>
                             <script language="4">
                                 <content>
@@ -25,7 +24,7 @@
         GeneratedClass.__init__(self)
 
     def onLoad(self):
-        pass                 
+        pass
 
     def onUnload(self):
         #~ puts code for box cleanup here
@@ -36,10 +35,10 @@
             import uknao.example as example
         except:
             import sys
-            sys.path.append(ALFrameManager.getBehaviorPath(self.behaviorId)+"/src") 
+            sys.path.append(ALFrameManager.getBehaviorPath(self.behaviorId)+"/src")
             import uknao.example as example
-            
-        value = example.whoami()    
+
+        value = example.whoami()
         self.onStopped(value) #~ activate output of the box
         pass
 
@@ -53,7 +52,7 @@
                             <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
                             <Output name="onStopped" type="3" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
                         </Box>
-                        <Box name="Say Text" robot="" id="3" tooltip="Say the text received on its input." bitmap_expanded="1" plugin="" x="372" y="151">
+                        <Box name="Say Text" id="3" localization="8" tooltip="Say the text received on its input." x="372" y="151">
                             <bitmap>media/images/box/interaction/say.png</bitmap>
                             <script language="4">
                                 <content>
@@ -68,7 +67,7 @@ class MyClass(GeneratedClass):
     def onLoad(self):
         self.bIsRunning = False
         self.ids = []
-        
+
     def onUnload(self):
         for id in self.ids:
             try:
@@ -113,7 +112,6 @@ class MyClass(GeneratedClass):
                     </Diagram>
                 </BehaviorKeyframe>
             </BehaviorLayer>
-            <ActuatorList />
         </Timeline>
     </Box>
 </ChoregrapheProject>

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package uuid="python-01-994155">
+ <names>
+  <name lang="en_US">python-01</name>
+ </names>
+ <descriptionLanguages>
+  <language>en_US</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path=".">
+   <nature></nature>
+   <permissions/>
+  </behaviorContent>
+ </contents>
+</package>

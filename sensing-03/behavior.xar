@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <ChoregrapheProject xmlns="http://www.aldebaran-robotics.com/schema/choregraphe/project.xsd" xar_version="3">
-    <Box name="root" robot="" id="-1" tooltip="Root box of Choregraphe&apos;s project. Highest level possible." bitmap_expanded="1" plugin="" x="0" y="0">
+    <Box name="root" id="-1" localization="8" tooltip="Root box of Choregraphe&apos;s project. Highest level possible." x="0" y="0">
         <bitmap>media/images/box/root.png</bitmap>
         <script language="4">
             <content>
@@ -11,12 +11,11 @@
         <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
         <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
         <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
-        <Timeline fps="10" resources_acquisition="0" size="300" enable="0" start_frame="0" end_frame="-1" scale="10">
-            <watches />
-            <BehaviorLayer name="behavior_layer1" mute="0">
-                <BehaviorKeyframe name="keyframe1" index="1" bitmap="">
-                    <Diagram scale="-1">
-                        <Box name="Is In Darkness" robot="" id="2" tooltip="Check with NAO&apos;s cameras if he is in darkness." bitmap_expanded="1" plugin="" x="85" y="39">
+        <Timeline enable="0">
+            <BehaviorLayer name="behavior_layer1">
+                <BehaviorKeyframe name="keyframe1" index="1">
+                    <Diagram>
+                        <Box name="Is In Darkness" id="2" localization="8" tooltip="Check with NAO&apos;s cameras if he is in darkness." x="85" y="39">
                             <bitmap>media/images/box/interaction/indark.png</bitmap>
                             <script language="4">
                                 <content>
@@ -47,7 +46,7 @@
                             <Output name="true" type="1" type_size="1" nature="2" inner="0" tooltip="Signal sent if NAO is in darkness." id="3" />
                             <Output name="false" type="1" type_size="1" nature="2" inner="0" tooltip="Signal sent if NAO is not in darkness." id="4" />
                         </Box>
-                        <Box name="Face Detection" robot="" id="1" tooltip="Detect people&apos;s face and return the number of detected faces.&#x0A;&#x0A;Note: Detect even faces that are not registered in NAO&apos;s faces database (that&#x0A;you can teach him with the Learn Face box)." bitmap_expanded="1" plugin="" x="428" y="175">
+                        <Box name="Face Detection" id="1" localization="8" tooltip="Detect people&apos;s face and return the number of detected faces.&#x0A;&#x0A;Note: Detect even faces that are not registered in NAO&apos;s faces database (that&#x0A;you can teach him with the Learn Face box)." x="428" y="175">
                             <bitmap>media/images/box/interaction/face.png</bitmap>
                             <script language="4">
                                 <content>
@@ -77,12 +76,11 @@
                             <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is stopped." id="5" />
                             <Output name="numberOfFaces" type="2" type_size="1" nature="2" inner="0" tooltip="Number of detected faces. This output is stimulated each time the number of&#x0A;detected faces change." id="6" />
                             <Output name="onNoFace" type="1" type_size="1" nature="2" inner="0" tooltip="No face is detected." id="7" />
-                            <Timeline fps="10" resources_acquisition="0" size="300" enable="0" start_frame="0" end_frame="-1" scale="10">
-                                <watches />
-                                <BehaviorLayer name="behavior_layer1" mute="0">
-                                    <BehaviorKeyframe name="keyframe1" index="1" bitmap="">
-                                        <Diagram scale="-1">
-                                            <Box name="Count Det. Faces" robot="" id="3" tooltip="Process face detection extractor data (FaceDetected) to count the number&#x0A;of detected faces and notify when there is no face detected.&#x0A;&#x0A;An output (either one or the other) is stimulated each time the number of&#x0A;detected faces change." bitmap_expanded="1" plugin="" x="174" y="71">
+                            <Timeline enable="0">
+                                <BehaviorLayer name="behavior_layer1">
+                                    <BehaviorKeyframe name="keyframe1" index="1">
+                                        <Diagram>
+                                            <Box name="Count Det. Faces" id="3" localization="8" tooltip="Process face detection extractor data (FaceDetected) to count the number&#x0A;of detected faces and notify when there is no face detected.&#x0A;&#x0A;An output (either one or the other) is stimulated each time the number of&#x0A;detected faces change." x="174" y="71">
                                                 <bitmap>media/images/box/interaction/reco_face.png</bitmap>
                                                 <script language="4">
                                                     <content>
@@ -125,10 +123,9 @@
                                         </Diagram>
                                     </BehaviorKeyframe>
                                 </BehaviorLayer>
-                                <ActuatorList />
                             </Timeline>
                         </Box>
-                        <Box name="Say" robot="" id="3" tooltip="Say some text. Note that you must open the box to enter the text." bitmap_expanded="1" plugin="" x="263" y="54">
+                        <Box name="Say" id="3" localization="8" tooltip="Say some text. Note that you must open the box to enter the text." x="263" y="54">
                             <bitmap>media/images/box/interaction/say.png</bitmap>
                             <script language="4">
                                 <content>
@@ -157,12 +154,11 @@
                             <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished or stopped." id="4" />
                             <Parameter name="Voice shaping (%)" inherits_from_parent="0" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.&#x0A;&#x0A;!Warning! This feature is not available yet in Japanese, Chinese and Korean.' id="5" />
                             <Parameter name="Speed (%)" inherits_from_parent="0" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed.&#x0A;&#x0A;!Warning! This feature is not available yet in Japanese, Chinese and Korean." id="6" />
-                            <Timeline fps="10" resources_acquisition="0" size="300" enable="0" start_frame="0" end_frame="-1" scale="10">
-                                <watches />
-                                <BehaviorLayer name="behavior_layer1" mute="0">
-                                    <BehaviorKeyframe name="keyframe1" index="1" bitmap="">
-                                        <Diagram scale="-1">
-                                            <Box name="Say Text" robot="" id="2" tooltip="Say the text received on its input." bitmap_expanded="1" plugin="" x="422" y="65">
+                            <Timeline enable="0">
+                                <BehaviorLayer name="behavior_layer1">
+                                    <BehaviorKeyframe name="keyframe1" index="1">
+                                        <Diagram>
+                                            <Box name="Say Text" id="2" localization="8" tooltip="Say the text received on its input." x="422" y="65">
                                                 <bitmap>media/images/box/interaction/say.png</bitmap>
                                                 <script language="4">
                                                     <content>
@@ -177,7 +173,7 @@ class MyClass(GeneratedClass):
     def onLoad(self):
         self.bIsRunning = False
         self.ids = []
-        
+
     def onUnload(self):
         for id in self.ids:
             try:
@@ -217,24 +213,41 @@ class MyClass(GeneratedClass):
                                                 <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
                                                 <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
                                             </Box>
-                                            <Box name="Localized Text" robot="" id="5" tooltip="Send on the output the text associated with the robot&apos;s current voice language.&#x0A;You can display and edit the text associated with any language by&#x0A;selecting the language in the combobox.&#x0A;&#x0A;!!Warning!! The text sent on the output is NOT the displayed one but the one&#x0A;associated with the robot&apos;s current voice language." bitmap_expanded="1" plugin="localizationbox_plugin" x="114" y="68">
+                                            <Box name="Localized Text" id="5" localization="8" tooltip="Send on the output the text associated with the robot&apos;s current voice language.&#x0A;You can display and edit the text associated with any language by&#x0A;selecting the language in the combobox.&#x0A;&#x0A;!!Warning!! The text sent on the output is NOT the displayed one but the one&#x0A;associated with the robot&apos;s current voice language." plugin="localizationbox_plugin" x="114" y="68">
                                                 <bitmap>media/images/box/interaction/vocabulary.png</bitmap>
                                                 <script language="4">
                                                     <content>
-                                                        <![CDATA[class MyClass(GeneratedClass):
+                                                        <![CDATA[# /!\ Generated content. Do not edit!
+class MyClass(GeneratedClass):
 	def __init__(self):
-		GeneratedClass.__init__(self)
+		try: # disable autoBind
+			GeneratedClass.__init__(self, False)
+		except TypeError: # if NAOqi < 1.14
+			GeneratedClass.__init__( self )
+
 		self.tts = ALProxy("ALTextToSpeech")
 		self.sentences = {
-			"Chinese" : "你好",
-			"English" : "Where's everyone gone?",
-			"French" : "Bonjour",
-			"German" : "Hallo",
-			"Italian" : "Ciao",
-			"Japanese" : "こんにちは",
-			"Korean" : "안녕하세요 ",
-			"Portuguese" : "Olá",
-			"Spanish" : "Hola"
+			"Arabic" : "  ",
+			"Czech" : "  ",
+			"Danish" : "  ",
+			"German" : " Hallo ",
+			"Greek" : "  ",
+			"English" : " Where\'s everyone gone? ",
+			"Spanish" : " Hola ",
+			"Finnish" : "  ",
+			"French" : " Bonjour ",
+			"Italian" : " Ciao ",
+			"Japanese" : " こんにちは ",
+			"Korean" : " 안녕하세요  ",
+			"Dutch" : "  ",
+			"Norwegian" : "  ",
+			"Polish" : "  ",
+			"Brazilian" : "  ",
+			"Portuguese" : " Olá ",
+			"Russian" : "  ",
+			"Swedish" : "  ",
+			"Turkish" : "  ",
+			"Chinese" : "  "
 		}
 
 	def onInput_onStart(self):
@@ -243,16 +256,70 @@ class MyClass(GeneratedClass):
 </content>
                                                 </script>
                                                 <pluginContent>
-                                                    <chinese>你好</chinese>
-                                                    <english>Where&apos;s everyone gone?</english>
-                                                    <french>Bonjour</french>
-                                                    <german>Hallo</german>
-                                                    <italian>Ciao</italian>
-                                                    <japanese>こんにちは</japanese>
-                                                    <korean>안녕하세요 </korean>
-                                                    <portuguese>Olá</portuguese>
-                                                    <spanish>Hola</spanish>
-                                                    <language>1</language>
+                                                    <arabic>
+                                                        <![CDATA[]]>
+</arabic>
+                                                    <czech>
+                                                        <![CDATA[]]>
+</czech>
+                                                    <danish>
+                                                        <![CDATA[]]>
+</danish>
+                                                    <german>
+                                                        <![CDATA[Hallo]]>
+</german>
+                                                    <greek>
+                                                        <![CDATA[]]>
+</greek>
+                                                    <english>
+                                                        <![CDATA[Where's everyone gone?]]>
+</english>
+                                                    <spanish>
+                                                        <![CDATA[Hola]]>
+</spanish>
+                                                    <finnish>
+                                                        <![CDATA[]]>
+</finnish>
+                                                    <french>
+                                                        <![CDATA[Bonjour]]>
+</french>
+                                                    <italian>
+                                                        <![CDATA[Ciao]]>
+</italian>
+                                                    <japanese>
+                                                        <![CDATA[こんにちは]]>
+</japanese>
+                                                    <korean>
+                                                        <![CDATA[안녕하세요 ]]>
+</korean>
+                                                    <dutch>
+                                                        <![CDATA[]]>
+</dutch>
+                                                    <norwegian>
+                                                        <![CDATA[]]>
+</norwegian>
+                                                    <polish>
+                                                        <![CDATA[]]>
+</polish>
+                                                    <brazilian>
+                                                        <![CDATA[]]>
+</brazilian>
+                                                    <portuguese>
+                                                        <![CDATA[Olá]]>
+</portuguese>
+                                                    <russian>
+                                                        <![CDATA[]]>
+</russian>
+                                                    <swedish>
+                                                        <![CDATA[]]>
+</swedish>
+                                                    <turkish>
+                                                        <![CDATA[]]>
+</turkish>
+                                                    <chinese>
+                                                        <![CDATA[]]>
+</chinese>
+                                                    <language>8</language>
                                                 </pluginContent>
                                                 <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
                                                 <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Data is sent on the output when this input is stimulated." id="2" />
@@ -264,10 +331,9 @@ class MyClass(GeneratedClass):
                                         </Diagram>
                                     </BehaviorKeyframe>
                                 </BehaviorLayer>
-                                <ActuatorList />
                             </Timeline>
                         </Box>
-                        <Box name="Say" robot="" id="4" tooltip="Say some text. Note that you must open the box to enter the text." bitmap_expanded="1" plugin="" x="265" y="174">
+                        <Box name="Say" id="4" localization="8" tooltip="Say some text. Note that you must open the box to enter the text." x="265" y="174">
                             <bitmap>media/images/box/interaction/say.png</bitmap>
                             <script language="4">
                                 <content>
@@ -296,12 +362,11 @@ class MyClass(GeneratedClass):
                             <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished or stopped." id="4" />
                             <Parameter name="Voice shaping (%)" inherits_from_parent="0" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.&#x0A;&#x0A;!Warning! This feature is not available yet in Japanese, Chinese and Korean.' id="5" />
                             <Parameter name="Speed (%)" inherits_from_parent="0" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed.&#x0A;&#x0A;!Warning! This feature is not available yet in Japanese, Chinese and Korean." id="6" />
-                            <Timeline fps="10" resources_acquisition="0" size="300" enable="0" start_frame="0" end_frame="-1" scale="10">
-                                <watches />
-                                <BehaviorLayer name="behavior_layer1" mute="0">
-                                    <BehaviorKeyframe name="keyframe1" index="1" bitmap="">
-                                        <Diagram scale="-1">
-                                            <Box name="Say Text" robot="" id="2" tooltip="Say the text received on its input." bitmap_expanded="1" plugin="" x="422" y="65">
+                            <Timeline enable="0">
+                                <BehaviorLayer name="behavior_layer1">
+                                    <BehaviorKeyframe name="keyframe1" index="1">
+                                        <Diagram>
+                                            <Box name="Say Text" id="2" localization="8" tooltip="Say the text received on its input." x="422" y="65">
                                                 <bitmap>media/images/box/interaction/say.png</bitmap>
                                                 <script language="4">
                                                     <content>
@@ -316,7 +381,7 @@ class MyClass(GeneratedClass):
     def onLoad(self):
         self.bIsRunning = False
         self.ids = []
-        
+
     def onUnload(self):
         for id in self.ids:
             try:
@@ -356,24 +421,41 @@ class MyClass(GeneratedClass):
                                                 <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
                                                 <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
                                             </Box>
-                                            <Box name="Localized Text" robot="" id="5" tooltip="Send on the output the text associated with the robot&apos;s current voice language.&#x0A;You can display and edit the text associated with any language by&#x0A;selecting the language in the combobox.&#x0A;&#x0A;!!Warning!! The text sent on the output is NOT the displayed one but the one&#x0A;associated with the robot&apos;s current voice language." bitmap_expanded="1" plugin="localizationbox_plugin" x="114" y="68">
+                                            <Box name="Localized Text" id="5" localization="8" tooltip="Send on the output the text associated with the robot&apos;s current voice language.&#x0A;You can display and edit the text associated with any language by&#x0A;selecting the language in the combobox.&#x0A;&#x0A;!!Warning!! The text sent on the output is NOT the displayed one but the one&#x0A;associated with the robot&apos;s current voice language." plugin="localizationbox_plugin" x="114" y="68">
                                                 <bitmap>media/images/box/interaction/vocabulary.png</bitmap>
                                                 <script language="4">
                                                     <content>
-                                                        <![CDATA[class MyClass(GeneratedClass):
+                                                        <![CDATA[# /!\ Generated content. Do not edit!
+class MyClass(GeneratedClass):
 	def __init__(self):
-		GeneratedClass.__init__(self)
+		try: # disable autoBind
+			GeneratedClass.__init__(self, False)
+		except TypeError: # if NAOqi < 1.14
+			GeneratedClass.__init__( self )
+
 		self.tts = ALProxy("ALTextToSpeech")
 		self.sentences = {
-			"Chinese" : "你好",
-			"English" : "I've seen the light!",
-			"French" : "Bonjour",
-			"German" : "Hallo",
-			"Italian" : "Ciao",
-			"Japanese" : "こんにちは",
-			"Korean" : "안녕하세요 ",
-			"Portuguese" : "Olá",
-			"Spanish" : "Hola"
+			"Arabic" : "  ",
+			"Czech" : "  ",
+			"Danish" : "  ",
+			"German" : " Hallo ",
+			"Greek" : "  ",
+			"English" : " I\'ve seen the light! ",
+			"Spanish" : " Hola ",
+			"Finnish" : "  ",
+			"French" : " Bonjour ",
+			"Italian" : " Ciao ",
+			"Japanese" : " こんにちは ",
+			"Korean" : " 안녕하세요  ",
+			"Dutch" : "  ",
+			"Norwegian" : "  ",
+			"Polish" : "  ",
+			"Brazilian" : "  ",
+			"Portuguese" : " Olá ",
+			"Russian" : "  ",
+			"Swedish" : "  ",
+			"Turkish" : "  ",
+			"Chinese" : "  "
 		}
 
 	def onInput_onStart(self):
@@ -382,16 +464,70 @@ class MyClass(GeneratedClass):
 </content>
                                                 </script>
                                                 <pluginContent>
-                                                    <chinese>你好</chinese>
-                                                    <english>I&apos;ve seen the light!</english>
-                                                    <french>Bonjour</french>
-                                                    <german>Hallo</german>
-                                                    <italian>Ciao</italian>
-                                                    <japanese>こんにちは</japanese>
-                                                    <korean>안녕하세요 </korean>
-                                                    <portuguese>Olá</portuguese>
-                                                    <spanish>Hola</spanish>
-                                                    <language>1</language>
+                                                    <arabic>
+                                                        <![CDATA[]]>
+</arabic>
+                                                    <czech>
+                                                        <![CDATA[]]>
+</czech>
+                                                    <danish>
+                                                        <![CDATA[]]>
+</danish>
+                                                    <german>
+                                                        <![CDATA[Hallo]]>
+</german>
+                                                    <greek>
+                                                        <![CDATA[]]>
+</greek>
+                                                    <english>
+                                                        <![CDATA[I've seen the light!]]>
+</english>
+                                                    <spanish>
+                                                        <![CDATA[Hola]]>
+</spanish>
+                                                    <finnish>
+                                                        <![CDATA[]]>
+</finnish>
+                                                    <french>
+                                                        <![CDATA[Bonjour]]>
+</french>
+                                                    <italian>
+                                                        <![CDATA[Ciao]]>
+</italian>
+                                                    <japanese>
+                                                        <![CDATA[こんにちは]]>
+</japanese>
+                                                    <korean>
+                                                        <![CDATA[안녕하세요 ]]>
+</korean>
+                                                    <dutch>
+                                                        <![CDATA[]]>
+</dutch>
+                                                    <norwegian>
+                                                        <![CDATA[]]>
+</norwegian>
+                                                    <polish>
+                                                        <![CDATA[]]>
+</polish>
+                                                    <brazilian>
+                                                        <![CDATA[]]>
+</brazilian>
+                                                    <portuguese>
+                                                        <![CDATA[Olá]]>
+</portuguese>
+                                                    <russian>
+                                                        <![CDATA[]]>
+</russian>
+                                                    <swedish>
+                                                        <![CDATA[]]>
+</swedish>
+                                                    <turkish>
+                                                        <![CDATA[]]>
+</turkish>
+                                                    <chinese>
+                                                        <![CDATA[]]>
+</chinese>
+                                                    <language>8</language>
                                                 </pluginContent>
                                                 <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
                                                 <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Data is sent on the output when this input is stimulated." id="2" />
@@ -403,10 +539,9 @@ class MyClass(GeneratedClass):
                                         </Diagram>
                                     </BehaviorKeyframe>
                                 </BehaviorLayer>
-                                <ActuatorList />
                             </Timeline>
                         </Box>
-                        <Box name="Say" robot="" id="6" tooltip="Say some text. Note that you must open the box to enter the text." bitmap_expanded="1" plugin="" x="470" y="369">
+                        <Box name="Say" id="6" localization="8" tooltip="Say some text. Note that you must open the box to enter the text." x="470" y="369">
                             <bitmap>media/images/box/interaction/say.png</bitmap>
                             <script language="4">
                                 <content>
@@ -435,12 +570,11 @@ class MyClass(GeneratedClass):
                             <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished or stopped." id="4" />
                             <Parameter name="Voice shaping (%)" inherits_from_parent="0" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.&#x0A;&#x0A;!Warning! This feature is not available yet in Japanese, Chinese and Korean.' id="5" />
                             <Parameter name="Speed (%)" inherits_from_parent="0" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed.&#x0A;&#x0A;!Warning! This feature is not available yet in Japanese, Chinese and Korean." id="6" />
-                            <Timeline fps="10" resources_acquisition="0" size="300" enable="0" start_frame="0" end_frame="-1" scale="10">
-                                <watches />
-                                <BehaviorLayer name="behavior_layer1" mute="0">
-                                    <BehaviorKeyframe name="keyframe1" index="1" bitmap="">
-                                        <Diagram scale="-1">
-                                            <Box name="Say Text" robot="" id="2" tooltip="Say the text received on its input." bitmap_expanded="1" plugin="" x="422" y="65">
+                            <Timeline enable="0">
+                                <BehaviorLayer name="behavior_layer1">
+                                    <BehaviorKeyframe name="keyframe1" index="1">
+                                        <Diagram>
+                                            <Box name="Say Text" id="2" localization="8" tooltip="Say the text received on its input." x="422" y="65">
                                                 <bitmap>media/images/box/interaction/say.png</bitmap>
                                                 <script language="4">
                                                     <content>
@@ -455,7 +589,7 @@ class MyClass(GeneratedClass):
     def onLoad(self):
         self.bIsRunning = False
         self.ids = []
-        
+
     def onUnload(self):
         for id in self.ids:
             try:
@@ -495,24 +629,41 @@ class MyClass(GeneratedClass):
                                                 <Parameter name="Voice shaping (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="150" tooltip='Used to modify at runtime the voice feature (tone, speed). In a slighty&#x0A;different way than pitch and speed, it gives a kind of &quot;gender or age&#x0A;modification&quot; effect.&#x0A;&#x0A;For instance, a quite good male derivation of female voice can be&#x0A;obtained setting this parameter to 78%.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the&#x0A;speed parameter. For example, if you want to decrease by 20% the voice&#x0A;shaping, you will have to increase by 20% the speed to keep a constant&#x0A;average speed.' id="5" />
                                                 <Parameter name="Speed (%)" inherits_from_parent="1" content_type="1" value="100" default_value="100" min="50" max="200" tooltip="Changes the speed of the voice.&#x0A;&#x0A;Note: For a better effect, you can compensate this parameter with the voice&#x0A;shaping parameter. For example, if you want to increase by 20% the speed, you&#x0A;will have to decrease by 20% the voice shaping to keep a constant average&#x0A;speed." id="6" />
                                             </Box>
-                                            <Box name="Localized Text" robot="" id="5" tooltip="Send on the output the text associated with the robot&apos;s current voice language.&#x0A;You can display and edit the text associated with any language by&#x0A;selecting the language in the combobox.&#x0A;&#x0A;!!Warning!! The text sent on the output is NOT the displayed one but the one&#x0A;associated with the robot&apos;s current voice language." bitmap_expanded="1" plugin="localizationbox_plugin" x="114" y="68">
+                                            <Box name="Localized Text" id="5" localization="8" tooltip="Send on the output the text associated with the robot&apos;s current voice language.&#x0A;You can display and edit the text associated with any language by&#x0A;selecting the language in the combobox.&#x0A;&#x0A;!!Warning!! The text sent on the output is NOT the displayed one but the one&#x0A;associated with the robot&apos;s current voice language." plugin="localizationbox_plugin" x="114" y="68">
                                                 <bitmap>media/images/box/interaction/vocabulary.png</bitmap>
                                                 <script language="4">
                                                     <content>
-                                                        <![CDATA[class MyClass(GeneratedClass):
+                                                        <![CDATA[# /!\ Generated content. Do not edit!
+class MyClass(GeneratedClass):
 	def __init__(self):
-		GeneratedClass.__init__(self)
+		try: # disable autoBind
+			GeneratedClass.__init__(self, False)
+		except TypeError: # if NAOqi < 1.14
+			GeneratedClass.__init__( self )
+
 		self.tts = ALProxy("ALTextToSpeech")
 		self.sentences = {
-			"Chinese" : "你好",
-			"English" : "and I can see faces",
-			"French" : "Bonjour",
-			"German" : "Hallo",
-			"Italian" : "Ciao",
-			"Japanese" : "こんにちは",
-			"Korean" : "안녕하세요 ",
-			"Portuguese" : "Olá",
-			"Spanish" : "Hola"
+			"Arabic" : "  ",
+			"Czech" : "  ",
+			"Danish" : "  ",
+			"German" : " Hallo ",
+			"Greek" : "  ",
+			"English" : " and I can see faces ",
+			"Spanish" : " Hola ",
+			"Finnish" : "  ",
+			"French" : " Bonjour ",
+			"Italian" : " Ciao ",
+			"Japanese" : " こんにちは ",
+			"Korean" : " 안녕하세요  ",
+			"Dutch" : "  ",
+			"Norwegian" : "  ",
+			"Polish" : "  ",
+			"Brazilian" : "  ",
+			"Portuguese" : " Olá ",
+			"Russian" : "  ",
+			"Swedish" : "  ",
+			"Turkish" : "  ",
+			"Chinese" : "  "
 		}
 
 	def onInput_onStart(self):
@@ -521,16 +672,70 @@ class MyClass(GeneratedClass):
 </content>
                                                 </script>
                                                 <pluginContent>
-                                                    <chinese>你好</chinese>
-                                                    <english>and I can see faces</english>
-                                                    <french>Bonjour</french>
-                                                    <german>Hallo</german>
-                                                    <italian>Ciao</italian>
-                                                    <japanese>こんにちは</japanese>
-                                                    <korean>안녕하세요 </korean>
-                                                    <portuguese>Olá</portuguese>
-                                                    <spanish>Hola</spanish>
-                                                    <language>1</language>
+                                                    <arabic>
+                                                        <![CDATA[]]>
+</arabic>
+                                                    <czech>
+                                                        <![CDATA[]]>
+</czech>
+                                                    <danish>
+                                                        <![CDATA[]]>
+</danish>
+                                                    <german>
+                                                        <![CDATA[Hallo]]>
+</german>
+                                                    <greek>
+                                                        <![CDATA[]]>
+</greek>
+                                                    <english>
+                                                        <![CDATA[and I can see faces]]>
+</english>
+                                                    <spanish>
+                                                        <![CDATA[Hola]]>
+</spanish>
+                                                    <finnish>
+                                                        <![CDATA[]]>
+</finnish>
+                                                    <french>
+                                                        <![CDATA[Bonjour]]>
+</french>
+                                                    <italian>
+                                                        <![CDATA[Ciao]]>
+</italian>
+                                                    <japanese>
+                                                        <![CDATA[こんにちは]]>
+</japanese>
+                                                    <korean>
+                                                        <![CDATA[안녕하세요 ]]>
+</korean>
+                                                    <dutch>
+                                                        <![CDATA[]]>
+</dutch>
+                                                    <norwegian>
+                                                        <![CDATA[]]>
+</norwegian>
+                                                    <polish>
+                                                        <![CDATA[]]>
+</polish>
+                                                    <brazilian>
+                                                        <![CDATA[]]>
+</brazilian>
+                                                    <portuguese>
+                                                        <![CDATA[Olá]]>
+</portuguese>
+                                                    <russian>
+                                                        <![CDATA[]]>
+</russian>
+                                                    <swedish>
+                                                        <![CDATA[]]>
+</swedish>
+                                                    <turkish>
+                                                        <![CDATA[]]>
+</turkish>
+                                                    <chinese>
+                                                        <![CDATA[]]>
+</chinese>
+                                                    <language>8</language>
                                                 </pluginContent>
                                                 <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
                                                 <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Data is sent on the output when this input is stimulated." id="2" />
@@ -542,7 +747,6 @@ class MyClass(GeneratedClass):
                                         </Diagram>
                                     </BehaviorKeyframe>
                                 </BehaviorLayer>
-                                <ActuatorList />
                             </Timeline>
                         </Box>
                         <Link inputowner="2" indexofinput="2" outputowner="0" indexofoutput="2" />
@@ -553,7 +757,6 @@ class MyClass(GeneratedClass):
                     </Diagram>
                 </BehaviorKeyframe>
             </BehaviorLayer>
-            <ActuatorList />
         </Timeline>
     </Box>
 </ChoregrapheProject>

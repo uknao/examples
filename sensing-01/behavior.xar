@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <ChoregrapheProject xmlns="http://www.aldebaran-robotics.com/schema/choregraphe/project.xsd" xar_version="3">
-    <Box name="root" robot="" id="-1" tooltip="Root box of Choregraphe&apos;s project. Highest level possible." bitmap_expanded="1" plugin="" x="0" y="0">
+    <Box name="root" id="-1" localization="8" tooltip="Root box of Choregraphe&apos;s project. Highest level possible." x="0" y="0">
         <bitmap>media/images/box/root.png</bitmap>
         <script language="4">
             <content>
@@ -11,12 +11,11 @@
         <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
         <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
         <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
-        <Timeline fps="10" resources_acquisition="0" size="300" enable="0" start_frame="0" end_frame="-1" scale="10">
-            <watches />
-            <BehaviorLayer name="behavior_layer1" mute="0">
-                <BehaviorKeyframe name="keyframe1" index="1" bitmap="">
-                    <Diagram scale="-1">
-                        <Box name="Bumpers" robot="" id="1" tooltip="Listen to bumpers sensors. Stimulate onLeft or onRight output depending on&#x0A;which bumper is stimulated." bitmap_expanded="1" plugin="" x="96" y="101">
+        <Timeline enable="0">
+            <BehaviorLayer name="behavior_layer1">
+                <BehaviorKeyframe name="keyframe1" index="1">
+                    <Diagram>
+                        <Box name="Bumpers" id="1" localization="8" tooltip="Listen to bumpers sensors. Stimulate onLeft or onRight output depending on&#x0A;which bumper is stimulated." x="96" y="101">
                             <bitmap>media/images/box/movement/move_foot.png</bitmap>
                             <bitmap>media/images/box/movement/move_leftfoot.png</bitmap>
                             <script language="4">
@@ -48,12 +47,11 @@
                             <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is stopped." id="6" />
                             <Output name="onLeft" type="1" type_size="1" nature="2" inner="0" tooltip="When left bumper is stimulated." id="7" />
                             <Output name="onRight" type="1" type_size="1" nature="2" inner="0" tooltip="When right bumper is stimulated." id="8" />
-                            <Timeline fps="10" resources_acquisition="0" size="300" enable="0" start_frame="0" end_frame="-1" scale="10">
-                                <watches />
-                                <BehaviorLayer name="behavior_layer1" mute="0">
-                                    <BehaviorKeyframe name="keyframe1" index="1" bitmap="">
-                                        <Diagram scale="-1">
-                                            <Box name="If &gt; 0" robot="" id="2" tooltip="Transmit only if value is &gt; 0." bitmap_expanded="1" plugin="" x="196" y="61">
+                            <Timeline enable="0">
+                                <BehaviorLayer name="behavior_layer1">
+                                    <BehaviorKeyframe name="keyframe1" index="1">
+                                        <Diagram>
+                                            <Box name="If &gt; 0" id="2" localization="8" tooltip="Transmit only if value is &gt; 0." x="196" y="61">
                                                 <bitmap>media/images/box/box-diagram.png</bitmap>
                                                 <script language="4">
                                                     <content>
@@ -79,7 +77,7 @@
                                                 <Input name="onStart" type="0" type_size="1" nature="1" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
                                                 <Output name="onStopped" type="1" type_size="1" nature="2" inner="0" tooltip="Signal sent when box behavior is finished." id="3" />
                                             </Box>
-                                            <Box name="If &gt; 0" robot="" id="4" tooltip="Transmit only if value is &gt; 0." bitmap_expanded="1" plugin="" x="197" y="165">
+                                            <Box name="If &gt; 0" id="4" localization="8" tooltip="Transmit only if value is &gt; 0." x="197" y="165">
                                                 <bitmap>media/images/box/box-diagram.png</bitmap>
                                                 <script language="4">
                                                     <content>
@@ -112,10 +110,9 @@
                                         </Diagram>
                                     </BehaviorKeyframe>
                                 </BehaviorLayer>
-                                <ActuatorList />
                             </Timeline>
                         </Box>
-                        <Box name="Wait" robot="" id="4" tooltip="Wait a moment before sending a signal on the output. The wait can be stopped any&#x0A;time. You may restart it any time, and it will start again." bitmap_expanded="1" plugin="" x="458" y="94">
+                        <Box name="Wait" id="4" localization="8" tooltip="Wait a moment before sending a signal on the output. The wait can be stopped any&#x0A;time. You may restart it any time, and it will start again." x="458" y="94">
                             <bitmap>media/images/box/wait.png</bitmap>
                             <script language="4">
                                 <content>
@@ -159,7 +156,7 @@ class MyClass(GeneratedClass):
                             <Output name="timerOutput" type="1" type_size="1" nature="1" inner="0" tooltip="Send a bang once time set in parameters is ellapsed, or if the box is stopped." id="4" />
                             <Parameter name="Timeout (s)" inherits_from_parent="0" content_type="2" value="1" default_value="1" min="0" max="5000" tooltip="Duration the box waits before stimulating the output." id="5" />
                         </Box>
-                        <Box name="Eyes LEDs" robot="" id="6" tooltip="Set the LED color of NAO&apos;s eyes. Note that you must open the box to enter the color." bitmap_expanded="1" plugin="" x="291" y="96">
+                        <Box name="Eyes LEDs" id="6" localization="8" tooltip="Set the LED color of NAO&apos;s eyes. Note that you must open the box to enter the color." x="291" y="96">
                             <bitmap>media/images/box/interaction/LED.png</bitmap>
                             <script language="4">
                                 <content>
@@ -175,12 +172,11 @@ class MyClass(GeneratedClass):
                                 <Choice value="Right" />
                             </Parameter>
                             <Parameter name="Duration (s)" inherits_from_parent="0" content_type="2" value="1.1" default_value="0.1" min="0" max="5" tooltip="Transition&apos;s duration in seconds." id="5" />
-                            <Timeline fps="10" resources_acquisition="0" size="300" enable="0" start_frame="0" end_frame="-1" scale="10">
-                                <watches />
-                                <BehaviorLayer name="behavior_layer1" mute="0">
-                                    <BehaviorKeyframe name="keyframe1" index="1" bitmap="">
-                                        <Diagram scale="-1">
-                                            <Box name="Eyes LEDs" robot="" id="15" tooltip="Set the color of LEDs of robot&apos;s eyes." bitmap_expanded="1" plugin="" x="281" y="41">
+                            <Timeline enable="0">
+                                <BehaviorLayer name="behavior_layer1">
+                                    <BehaviorKeyframe name="keyframe1" index="1">
+                                        <Diagram>
+                                            <Box name="Eyes LEDs" id="15" localization="8" tooltip="Set the color of LEDs of robot&apos;s eyes." x="281" y="41">
                                                 <bitmap>media/images/box/interaction/LED.png</bitmap>
                                                 <script language="4">
                                                     <content>
@@ -220,7 +216,7 @@ class MyClass(GeneratedClass):
                                                 </Parameter>
                                                 <Parameter name="Duration (s)" inherits_from_parent="1" content_type="2" value="0.1" default_value="0.1" min="0" max="5" tooltip="Transition&apos;s duration in seconds." id="5" />
                                             </Box>
-                                            <Box name="Color Edit" robot="" id="16" tooltip="Transmit a table of number [R,G,B] correponsding to the selected color." bitmap_expanded="1" plugin="coloredit_plugin" x="105" y="47">
+                                            <Box name="Color Edit" id="16" localization="8" tooltip="Transmit a table of number [R,G,B] correponsding to the selected color." plugin="coloredit_plugin" x="105" y="47">
                                                 <bitmap>media/images/box/interaction/vocabulary.png</bitmap>
                                                 <script language="4">
                                                     <content>
@@ -245,10 +241,9 @@ class MyClass(GeneratedClass):
                                         </Diagram>
                                     </BehaviorKeyframe>
                                 </BehaviorLayer>
-                                <ActuatorList />
                             </Timeline>
                         </Box>
-                        <Box name="Eyes LEDs" robot="" id="2" tooltip="Set the LED color of NAO&apos;s eyes. Note that you must open the box to enter the color." bitmap_expanded="1" plugin="" x="624" y="87">
+                        <Box name="Eyes LEDs" id="2" localization="8" tooltip="Set the LED color of NAO&apos;s eyes. Note that you must open the box to enter the color." x="624" y="87">
                             <bitmap>media/images/box/interaction/LED.png</bitmap>
                             <script language="4">
                                 <content>
@@ -264,12 +259,11 @@ class MyClass(GeneratedClass):
                                 <Choice value="Right" />
                             </Parameter>
                             <Parameter name="Duration (s)" inherits_from_parent="0" content_type="2" value="1.1" default_value="0.1" min="0" max="5" tooltip="Transition&apos;s duration in seconds." id="5" />
-                            <Timeline fps="10" resources_acquisition="0" size="300" enable="0" start_frame="0" end_frame="-1" scale="10">
-                                <watches />
-                                <BehaviorLayer name="behavior_layer1" mute="0">
-                                    <BehaviorKeyframe name="keyframe1" index="1" bitmap="">
-                                        <Diagram scale="-1">
-                                            <Box name="Eyes LEDs" robot="" id="15" tooltip="Set the color of LEDs of robot&apos;s eyes." bitmap_expanded="1" plugin="" x="281" y="41">
+                            <Timeline enable="0">
+                                <BehaviorLayer name="behavior_layer1">
+                                    <BehaviorKeyframe name="keyframe1" index="1">
+                                        <Diagram>
+                                            <Box name="Eyes LEDs" id="15" localization="8" tooltip="Set the color of LEDs of robot&apos;s eyes." x="281" y="41">
                                                 <bitmap>media/images/box/interaction/LED.png</bitmap>
                                                 <script language="4">
                                                     <content>
@@ -309,7 +303,7 @@ class MyClass(GeneratedClass):
                                                 </Parameter>
                                                 <Parameter name="Duration (s)" inherits_from_parent="1" content_type="2" value="0.1" default_value="0.1" min="0" max="5" tooltip="Transition&apos;s duration in seconds." id="5" />
                                             </Box>
-                                            <Box name="Color Edit" robot="" id="16" tooltip="Transmit a table of number [R,G,B] correponsding to the selected color." bitmap_expanded="1" plugin="coloredit_plugin" x="105" y="47">
+                                            <Box name="Color Edit" id="16" localization="8" tooltip="Transmit a table of number [R,G,B] correponsding to the selected color." plugin="coloredit_plugin" x="105" y="47">
                                                 <bitmap>media/images/box/interaction/vocabulary.png</bitmap>
                                                 <script language="4">
                                                     <content>
@@ -334,10 +328,9 @@ class MyClass(GeneratedClass):
                                         </Diagram>
                                     </BehaviorKeyframe>
                                 </BehaviorLayer>
-                                <ActuatorList />
                             </Timeline>
                         </Box>
-                        <Box name="Eyes LEDs" robot="" id="3" tooltip="Set the LED color of NAO&apos;s eyes. Note that you must open the box to enter the color." bitmap_expanded="1" plugin="" x="295" y="254">
+                        <Box name="Eyes LEDs" id="3" localization="8" tooltip="Set the LED color of NAO&apos;s eyes. Note that you must open the box to enter the color." x="295" y="254">
                             <bitmap>media/images/box/interaction/LED.png</bitmap>
                             <script language="4">
                                 <content>
@@ -353,12 +346,11 @@ class MyClass(GeneratedClass):
                                 <Choice value="Right" />
                             </Parameter>
                             <Parameter name="Duration (s)" inherits_from_parent="0" content_type="2" value="1.1" default_value="0.1" min="0" max="5" tooltip="Transition&apos;s duration in seconds." id="5" />
-                            <Timeline fps="10" resources_acquisition="0" size="300" enable="0" start_frame="0" end_frame="-1" scale="10">
-                                <watches />
-                                <BehaviorLayer name="behavior_layer1" mute="0">
-                                    <BehaviorKeyframe name="keyframe1" index="1" bitmap="">
-                                        <Diagram scale="-1">
-                                            <Box name="Eyes LEDs" robot="" id="15" tooltip="Set the color of LEDs of robot&apos;s eyes." bitmap_expanded="1" plugin="" x="281" y="41">
+                            <Timeline enable="0">
+                                <BehaviorLayer name="behavior_layer1">
+                                    <BehaviorKeyframe name="keyframe1" index="1">
+                                        <Diagram>
+                                            <Box name="Eyes LEDs" id="15" localization="8" tooltip="Set the color of LEDs of robot&apos;s eyes." x="281" y="41">
                                                 <bitmap>media/images/box/interaction/LED.png</bitmap>
                                                 <script language="4">
                                                     <content>
@@ -398,7 +390,7 @@ class MyClass(GeneratedClass):
                                                 </Parameter>
                                                 <Parameter name="Duration (s)" inherits_from_parent="1" content_type="2" value="0.1" default_value="0.1" min="0" max="5" tooltip="Transition&apos;s duration in seconds." id="5" />
                                             </Box>
-                                            <Box name="Color Edit" robot="" id="16" tooltip="Transmit a table of number [R,G,B] correponsding to the selected color." bitmap_expanded="1" plugin="coloredit_plugin" x="105" y="47">
+                                            <Box name="Color Edit" id="16" localization="8" tooltip="Transmit a table of number [R,G,B] correponsding to the selected color." plugin="coloredit_plugin" x="105" y="47">
                                                 <bitmap>media/images/box/interaction/vocabulary.png</bitmap>
                                                 <script language="4">
                                                     <content>
@@ -423,10 +415,9 @@ class MyClass(GeneratedClass):
                                         </Diagram>
                                     </BehaviorKeyframe>
                                 </BehaviorLayer>
-                                <ActuatorList />
                             </Timeline>
                         </Box>
-                        <Box name="Wait" robot="" id="5" tooltip="Wait a moment before sending a signal on the output. The wait can be stopped any&#x0A;time. You may restart it any time, and it will start again." bitmap_expanded="1" plugin="" x="457" y="256">
+                        <Box name="Wait" id="5" localization="8" tooltip="Wait a moment before sending a signal on the output. The wait can be stopped any&#x0A;time. You may restart it any time, and it will start again." x="457" y="256">
                             <bitmap>media/images/box/wait.png</bitmap>
                             <script language="4">
                                 <content>
@@ -470,7 +461,7 @@ class MyClass(GeneratedClass):
                             <Output name="timerOutput" type="1" type_size="1" nature="1" inner="0" tooltip="Send a bang once time set in parameters is ellapsed, or if the box is stopped." id="4" />
                             <Parameter name="Timeout (s)" inherits_from_parent="0" content_type="2" value="1" default_value="1" min="0" max="5000" tooltip="Duration the box waits before stimulating the output." id="5" />
                         </Box>
-                        <Box name="Eyes LEDs" robot="" id="7" tooltip="Set the LED color of NAO&apos;s eyes. Note that you must open the box to enter the color." bitmap_expanded="1" plugin="" x="619" y="243">
+                        <Box name="Eyes LEDs" id="7" localization="8" tooltip="Set the LED color of NAO&apos;s eyes. Note that you must open the box to enter the color." x="619" y="243">
                             <bitmap>media/images/box/interaction/LED.png</bitmap>
                             <script language="4">
                                 <content>
@@ -486,12 +477,11 @@ class MyClass(GeneratedClass):
                                 <Choice value="Right" />
                             </Parameter>
                             <Parameter name="Duration (s)" inherits_from_parent="0" content_type="2" value="1.1" default_value="0.1" min="0" max="5" tooltip="Transition&apos;s duration in seconds." id="5" />
-                            <Timeline fps="10" resources_acquisition="0" size="300" enable="0" start_frame="0" end_frame="-1" scale="10">
-                                <watches />
-                                <BehaviorLayer name="behavior_layer1" mute="0">
-                                    <BehaviorKeyframe name="keyframe1" index="1" bitmap="">
-                                        <Diagram scale="-1">
-                                            <Box name="Eyes LEDs" robot="" id="15" tooltip="Set the color of LEDs of robot&apos;s eyes." bitmap_expanded="1" plugin="" x="281" y="41">
+                            <Timeline enable="0">
+                                <BehaviorLayer name="behavior_layer1">
+                                    <BehaviorKeyframe name="keyframe1" index="1">
+                                        <Diagram>
+                                            <Box name="Eyes LEDs" id="15" localization="8" tooltip="Set the color of LEDs of robot&apos;s eyes." x="281" y="41">
                                                 <bitmap>media/images/box/interaction/LED.png</bitmap>
                                                 <script language="4">
                                                     <content>
@@ -531,7 +521,7 @@ class MyClass(GeneratedClass):
                                                 </Parameter>
                                                 <Parameter name="Duration (s)" inherits_from_parent="1" content_type="2" value="0.1" default_value="0.1" min="0" max="5" tooltip="Transition&apos;s duration in seconds." id="5" />
                                             </Box>
-                                            <Box name="Color Edit" robot="" id="16" tooltip="Transmit a table of number [R,G,B] correponsding to the selected color." bitmap_expanded="1" plugin="coloredit_plugin" x="105" y="47">
+                                            <Box name="Color Edit" id="16" localization="8" tooltip="Transmit a table of number [R,G,B] correponsding to the selected color." plugin="coloredit_plugin" x="105" y="47">
                                                 <bitmap>media/images/box/interaction/vocabulary.png</bitmap>
                                                 <script language="4">
                                                     <content>
@@ -556,7 +546,6 @@ class MyClass(GeneratedClass):
                                         </Diagram>
                                     </BehaviorKeyframe>
                                 </BehaviorLayer>
-                                <ActuatorList />
                             </Timeline>
                         </Box>
                         <Link inputowner="1" indexofinput="2" outputowner="0" indexofoutput="2" />
@@ -569,7 +558,6 @@ class MyClass(GeneratedClass):
                     </Diagram>
                 </BehaviorKeyframe>
             </BehaviorLayer>
-            <ActuatorList />
         </Timeline>
     </Box>
 </ChoregrapheProject>
